@@ -1,5 +1,5 @@
-# com
-Pick your favorite food com around you. 
+# Trucks
+Pick your favorite food trucks around you. 
 
 1. pre-request: java11
 2. build project `./gradlew clean build`
