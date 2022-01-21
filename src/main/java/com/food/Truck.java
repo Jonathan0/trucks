@@ -49,12 +49,28 @@ public class Truck {
         return this.latitude;
     }
 
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
     public double getLongtitude() {
         return this.longitude;
     }
 
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
     public String getLocationdesc() {
         return this.locationdesc;
+    }
+
+    public void setPermitLocation(String permitLocation) {
+        this.permitLocation = permitLocation;
+    }
+
+    public String getPermitLocation() {
+        return this.permitLocation;
     }
 
     public void setDayOrder(int dayOrder) {

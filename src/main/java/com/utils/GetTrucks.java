@@ -1,2 +1,5 @@
-package com.utils;public class GetTrucks {
+package com.utils;
+
+public class GetTrucks {
+
 }
