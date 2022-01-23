@@ -29,12 +29,15 @@ class LoadDatabase {
 
         try {
             trucksArray = getTrucks(dayOrder);
-            for (Object obj : trucksArray) {
-                JSONObject truck = (JSONObject) obj;
+            for (Object o : trucksArray) {
+                JSONObject truck = (JSONObject) o;
                 String permitLocation = truck.get("location").toString();
                 double latitude = Double.parseDouble(truck.get("latitude").toString());
                 double longitude = Double.parseDouble(truck.get("longitude").toString());
-                log.info("Preloading " + repository.save(new Truck(permitLocation, latitude, longitude)));
+                String starttime = truck.get("starttime").toString();
+                String endtime = truck.get("endtime").toString();
+                String optionaltext = truck.get("optionaltext") == null ? "null" : truck.get("optionaltext").toString();
+                log.info("Preloading " + repository.save(new Truck(permitLocation, latitude, longitude, starttime, endtime, optionaltext)));
             }
         } catch (IOException e) {
             log.error("Can not find trucks", e);

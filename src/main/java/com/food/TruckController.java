@@ -64,7 +64,8 @@ public class TruckController {
     @GetMapping("/trucks/find")
     public List<Truck> findTruck(
             @RequestParam(value = "latitude", defaultValue = "0.0") String latitude,
-            @RequestParam(value = "longitude", defaultValue = "0.0") String longitude) throws RuntimeException {
+            @RequestParam(value = "longitude", defaultValue = "0.0") String longitude,
+            @RequestParam(value = "count", defaultValue = "5") int count) throws RuntimeException {
 
         List<Truck> allTrucks = repository.findAll();
         Map<Double, Long> truckMap = new TreeMap<>();
@@ -77,7 +78,7 @@ public class TruckController {
         }
 
         List<Long> topFiveIds = new ArrayList<>();
-        int n = 5;
+        int n = count;
         for(Double key : truckMap.keySet()) {
             Long id = truckMap.get(key);
             topFiveIds.add(id);

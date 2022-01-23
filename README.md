@@ -30,9 +30,15 @@ curl -X DELETE -v localhost:8080/trucks/3
 ```
 curl -v 'localhost:8080/trucks/find?latitude=37.12345&longitude=-122.67891'
 ```
+11. Find the top N trucks around the current location with `count=N`
+```
+curl -v 'localhost:8080/trucks/find?latitude=37.12345&longitude=-122.67891&count=10'
+```
 
 ## Continue Improvement
 1. Loading all Trucks Data from the [sfgov](https://data.sfgov.org/resource/jjew-r69b.json) by the day of week (now default sunday)
 2. Enhancing the web api call with current latitude and longitude to query the top 5 trucks near you.
 3. Enhancing to pick a day of the week, which is to set `dayOrder` in application.properties file.
-4. Add the circleCi pipeline to run gradle build for each PR
+4. Add the circleCi pipeline to run gradle build for each PR.
+5. Enable Dependabot for dependencies security updates. 
+6. Enhancing more detail description of food trucks from Web API call.

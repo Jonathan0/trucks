@@ -31,10 +31,13 @@ public class Truck {
     Truck() {
     }
 
-    public Truck(String permitLocation, double latitude, double longitude) {
+    public Truck(String permitLocation, double latitude, double longitude, String starttime, String endtime, String optionaltext) {
         this.permitLocation = permitLocation;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.starttime = starttime;
+        this.endtime = endtime;
+        this.optionaltext = optionaltext;
     }
 
     public Long getId() {
@@ -61,8 +64,20 @@ public class Truck {
         this.longitude = longitude;
     }
 
+    public void setLocationdesc(String locationdesc) {
+        this.locationdesc = locationdesc;
+    }
+
     public String getLocationdesc() {
         return this.locationdesc;
+    }
+
+    public void setOptionaltext(String optionaltext) {
+        this.optionaltext = optionaltext;
+    }
+
+    public String getOptionaltext() {
+        return this.optionaltext;
     }
 
     public void setPermitLocation(String permitLocation) {
@@ -111,9 +126,9 @@ public class Truck {
             return true;
         if (!(o instanceof Truck))
             return false;
-        Truck employee = (Truck) o;
-        return Objects.equals(this.id, employee.id) && Objects.equals(this.latitude, employee.latitude)
-                && Objects.equals(this.longitude, employee.longitude);
+        Truck truck = (Truck) o;
+        return Objects.equals(this.id, truck.id) && Objects.equals(this.latitude, truck.latitude)
+                && Objects.equals(this.longitude, truck.longitude);
     }
 
     @Override
@@ -126,6 +141,9 @@ public class Truck {
         return "Truck{" +
                 "id=" + this.id +
                 ", permitLocation=" + this.permitLocation +
+                ", optionalText=" + this.optionaltext +
+                ", startTime=" + this.starttime +
+                ", endTime=" + this.endtime +
                 ", latitude='" + this.latitude + '\'' +
                 ", longitude='" + this.longitude + '\'' + '}';
     }
