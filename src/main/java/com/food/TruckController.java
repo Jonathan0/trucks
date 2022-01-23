@@ -1,6 +1,5 @@
 package com.food;
 
-import net.bytebuddy.implementation.bind.annotation.FieldValue;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -82,7 +81,7 @@ public class TruckController {
         for(Double key : truckMap.keySet()) {
             Long id = truckMap.get(key);
             topFiveIds.add(id);
-            if(--n < 0){
+            if(--n <= 0){
                 break;
             }
         }
