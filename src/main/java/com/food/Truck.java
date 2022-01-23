@@ -61,8 +61,20 @@ public class Truck {
         this.longitude = longitude;
     }
 
+    public void setLocationdesc(String locationdesc) {
+        this.locationdesc = locationdesc;
+    }
+
     public String getLocationdesc() {
         return this.locationdesc;
+    }
+
+    public void setOptionaltext(String optionaltext) {
+        this.optionaltext = optionaltext;
+    }
+
+    public String getOptionaltext() {
+        return this.optionaltext;
     }
 
     public void setPermitLocation(String permitLocation) {
