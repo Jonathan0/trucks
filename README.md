@@ -30,6 +30,10 @@ curl -X DELETE -v localhost:8080/trucks/3
 ```
 curl -v 'localhost:8080/trucks/find?latitude=37.12345&longitude=-122.67891'
 ```
+11. Find the top N trucks around the current location with `count=N`
+```
+curl -v 'localhost:8080/trucks/find?latitude=37.12345&longitude=-122.67891&count=10'
+```
 
 ## Continue Improvement
 1. Loading all Trucks Data from the [sfgov](https://data.sfgov.org/resource/jjew-r69b.json) by the day of week (now default sunday)
