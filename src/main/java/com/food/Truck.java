@@ -31,7 +31,7 @@ public class Truck {
     Truck() {
     }
 
-    Truck(String permitLocation, double latitude, double longitude) {
+    public Truck(String permitLocation, double latitude, double longitude) {
         this.permitLocation = permitLocation;
         this.latitude = latitude;
         this.longitude = longitude;

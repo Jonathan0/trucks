@@ -1,5 +1,6 @@
 package com.food;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -9,6 +10,7 @@ import static com.utils.GetTrucks.getDistance;
 @RestController
 public class TruckController {
 
+    @Autowired
     private final TruckRepository repository;
 
     TruckController(TruckRepository repository) {
@@ -68,8 +70,6 @@ public class TruckController {
         Map<Double, Long> truckMap = new TreeMap<>();
         double lat = Double.parseDouble(latitude);
         double lon = Double.parseDouble(longitude);
-        System.out.println(lat);
-        System.out.println(lon);
 
         for(Truck t : allTrucks) {
             double dis = getDistance(lat, lon, t.getLatitude(), t.getLongtitude());
