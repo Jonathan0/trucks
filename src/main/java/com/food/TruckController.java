@@ -1,13 +1,11 @@
 package com.food;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import java.util.List;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import net.bytebuddy.implementation.bind.annotation.FieldValue;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.*;
+
+import static com.utils.GetTrucks.getDistance;
 
 @RestController
 public class TruckController {
@@ -29,14 +27,14 @@ public class TruckController {
     }
 
     @GetMapping("/trucks/{id}")
-    public Truck one(@PathVariable Long id) {
+    public Truck oneTruck(@PathVariable Long id) {
         return repository
                 .findById(id)
                 .orElseThrow(() -> new TruckNotFoundException(id));
     }
 
     @PostMapping("/trucks")
-    public Truck newEmployee(@RequestBody Truck newTruck) {
+    public Truck newTruck(@RequestBody Truck newTruck) {
         return repository.save(newTruck);
     }
 
@@ -61,4 +59,35 @@ public class TruckController {
     void deleteTruck(@PathVariable Long id) {
         repository.deleteById(id);
     }
+
+    @GetMapping("/trucks/find")
+    public List<Truck> findTruck(
+            @RequestParam(value = "latitude", defaultValue = "0.0") String latitude,
+            @RequestParam(value = "longitude", defaultValue = "0.0") String longitude) throws RuntimeException {
+
+        List<Truck> allTrucks = repository.findAll();
+        Map<Double, Long> truckMap = new TreeMap<>();
+        double lat = Double.parseDouble(latitude);
+        double lon = Double.parseDouble(longitude);
+        System.out.println(lat);
+        System.out.println(lon);
+
+        for(Truck t : allTrucks) {
+            double dis = getDistance(lat, lon, t.getLatitude(), t.getLongtitude());
+            truckMap.put(dis, t.getId());
+        }
+
+        List<Long> topFiveIds = new ArrayList<>();
+        int n = 5;
+        for(Double key : truckMap.keySet()) {
+            Long id = truckMap.get(key);
+            topFiveIds.add(id);
+            if(--n < 0){
+                break;
+            }
+        }
+
+        return repository.findAllById(topFiveIds);
+    }
+
 }
