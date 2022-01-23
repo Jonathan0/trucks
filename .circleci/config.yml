@@ -19,3 +19,14 @@ workflows:
   build-trucks-workflow:
     jobs:
       - build-trucks
+
+  nightly-workflow:
+    jobs:
+      - build-trucks
+    triggers:
+      - schedule:
+          cron: "0 2 * * *"
+          filters:
+            branches:
+              only:
+                - main
