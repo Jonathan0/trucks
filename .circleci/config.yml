@@ -1,0 +1,21 @@
+version: 2.1
+
+jobs:
+  build-trucks:
+    machine: # executor type
+      image: ubuntu-2004:202010-01
+    steps:
+      - checkout
+      - run:
+          name: 'Build Truck Web API and Test'
+          command: |
+            ./gradlew clean build
+      - store_test_results:
+          path: ~/project/build/test-results/test/
+      - store_artifacts:
+          path: ~/project/build/reports/tests/test/
+
+workflows:
+  build-trucks-workflow:
+    jobs:
+      - build-trucks
