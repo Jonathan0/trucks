@@ -29,9 +29,9 @@ public class TruckControllerTest {
     @MockBean
     TruckRepository truckRepository;
 
-    Truck Truck_1 = new Truck("3750 18TH ST", 37.77799350505247,-122.41855163440088, "11AM", "7PM");
-    Truck Truck_2 = new Truck("50 IVY ST", 37.75410782820197, -122.4131684456666, "2PM", "9PM");
-    Truck Truck_3 = new Truck("3055 23RD ST", 37.79284659513321, -122.40236649693905, "9AM", "12PM");
+    Truck Truck_1 = new Truck("3750 18TH ST", 37.77799350505247,-122.41855163440088, "11AM", "7PM", "Ice Cream");
+    Truck Truck_2 = new Truck("50 IVY ST", 37.75410782820197, -122.4131684456666, "2PM", "9PM", "coffee");
+    Truck Truck_3 = new Truck("3055 23RD ST", 37.79284659513321, -122.40236649693905, "9AM", "12PM", "Fruit drink");
 
     // @Test
     public void getAllRecords_success() throws Exception {

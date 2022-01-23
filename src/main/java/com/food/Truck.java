@@ -31,12 +31,13 @@ public class Truck {
     Truck() {
     }
 
-    public Truck(String permitLocation, double latitude, double longitude, String starttime, String endtime) {
+    public Truck(String permitLocation, double latitude, double longitude, String starttime, String endtime, String optionaltext) {
         this.permitLocation = permitLocation;
         this.latitude = latitude;
         this.longitude = longitude;
         this.starttime = starttime;
         this.endtime = endtime;
+        this.optionaltext = optionaltext;
     }
 
     public Long getId() {
@@ -140,6 +141,7 @@ public class Truck {
         return "Truck{" +
                 "id=" + this.id +
                 ", permitLocation=" + this.permitLocation +
+                ", optionalText=" + this.optionaltext +
                 ", startTime=" + this.starttime +
                 ", endTime=" + this.endtime +
                 ", latitude='" + this.latitude + '\'' +

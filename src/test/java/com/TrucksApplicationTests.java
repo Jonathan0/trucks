@@ -26,6 +26,7 @@ class TrucksApplicationTests {
         JSONArray res = getTrucks(0);
         Assertions.assertEquals(82, res.size());
         Assertions.assertEquals("0", ((JSONObject) res.get(0)).get("dayorder"));
+        Assertions.assertNotNull(((JSONObject) res.get(0)).get("optionaltext"));
     }
 
     @Test
