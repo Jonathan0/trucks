@@ -34,7 +34,9 @@ class LoadDatabase {
                 String permitLocation = truck.get("location").toString();
                 double latitude = Double.parseDouble(truck.get("latitude").toString());
                 double longitude = Double.parseDouble(truck.get("longitude").toString());
-                log.info("Preloading " + repository.save(new Truck(permitLocation, latitude, longitude)));
+                String starttime = truck.get("starttime").toString();
+                String endtime = truck.get("endtime").toString();
+                log.info("Preloading " + repository.save(new Truck(permitLocation, latitude, longitude, starttime, endtime)));
             }
         } catch (IOException e) {
             log.error("Can not find trucks", e);
