@@ -26,7 +26,11 @@ curl -X POST -v localhost:8080/trucks -H 'Content-type:application/json' -d '{"p
 ```
 curl -X DELETE -v localhost:8080/trucks/3
 ```
+10. Find the top 5 trucks with your current location
+```
+curl -v 'localhost:8080/trucks/find?latitude=37.12345&longitude=-122.67891'
+```
 
 ## Continue Improvement
 1. Loading all Trucks Data from the [sfgov](https://data.sfgov.org/resource/jjew-r69b.json) by the day of week (now default sunday)
-2. Continue improving the GetTrucks utils for more...
+2. Enhancing the web api call with current latitude and longitude to query the top 5 trucks near you.
