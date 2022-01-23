@@ -11,9 +11,9 @@ jobs:
           command: |
             ./gradlew clean build
       - store_test_results:
-          path: ~/project/trucks/build/test-results/test/*.xml
+          path: ~/project/build/test-results/test/
       - store_artifacts:
-          path: ~/project/trucks/build/reports/tests/test/*
+          path: ~/project/build/reports/tests/test/
 
 workflows:
   build-trucks-workflow:
