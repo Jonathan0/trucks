@@ -34,3 +34,4 @@ curl -v 'localhost:8080/trucks/find?latitude=37.12345&longitude=-122.67891'
 ## Continue Improvement
 1. Loading all Trucks Data from the [sfgov](https://data.sfgov.org/resource/jjew-r69b.json) by the day of week (now default sunday)
 2. Enhancing the web api call with current latitude and longitude to query the top 5 trucks near you.
+3. Enhancing to pick a day of the week, which is to set `dayOrder` in application.properties file.
