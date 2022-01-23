@@ -125,9 +125,9 @@ public class Truck {
             return true;
         if (!(o instanceof Truck))
             return false;
-        Truck employee = (Truck) o;
-        return Objects.equals(this.id, employee.id) && Objects.equals(this.latitude, employee.latitude)
-                && Objects.equals(this.longitude, employee.longitude);
+        Truck truck = (Truck) o;
+        return Objects.equals(this.id, truck.id) && Objects.equals(this.latitude, truck.latitude)
+                && Objects.equals(this.longitude, truck.longitude);
     }
 
     @Override
