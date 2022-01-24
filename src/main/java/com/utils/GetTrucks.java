@@ -16,6 +16,12 @@ public class GetTrucks {
 
     private static final Logger log = LoggerFactory.getLogger(GetTrucks.class);
 
+    /**
+     * Retrieving food trucks data from the sfgov cloud.
+     * @param dayorder The day of the week
+     * @return A list of trucks as Json Array
+     * @throws IOException
+     */
     public static JSONArray getTrucks(int dayorder) throws IOException {
         if(dayorder < 0 || dayorder > 6) {
             throw new TruckNotFoundException(-1L);
@@ -56,7 +62,7 @@ public class GetTrucks {
     }
 
     /**
-     * Calculate the distance between you and the truck
+     * Calculate the distance between you and the truck.
      * @param latitude1   current latitude
      * @param longitude1  current longitude
      * @param latitude2   truck latitude
