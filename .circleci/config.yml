@@ -14,11 +14,37 @@ jobs:
           path: ~/project/build/test-results/test/
       - store_artifacts:
           path: ~/project/build/reports/tests/test/
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build
+
+  build-docker:
+    machine: # executor type
+      image: ubuntu-2004:202010-01
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: 'Build Docker: truck-api-framework'
+          command: |
+            docker build -f dockerfile/Dockerfile -t truck-api-framework:latest .
+      - run:
+          name: 'Publish to my private docker hub'
+          command: |
+            docker login --username $DOCKER_USER --password $DOCKER_PWD
+            docker tag truck-api-framework:latest $DOCKER_USER/trucks
+            docker push $DOCKER_USER/trucks
 
 workflows:
   build-trucks-workflow:
     jobs:
       - build-trucks
+
+      - build-docker:
+          requires:
+            - build-trucks
 
   nightly-workflow:
     jobs:
