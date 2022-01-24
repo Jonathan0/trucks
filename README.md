@@ -26,7 +26,7 @@ curl -X POST -v localhost:8080/trucks -H 'Content-type:application/json' -d '{"p
 ```
 curl -X DELETE -v localhost:8080/trucks/3
 ```
-10. Find the top 5 trucks with your current location
+10. Find the top 5 trucks with your current location, you can find `latitude` and `longitude` in the google map
 ```
 curl -v 'localhost:8080/trucks/find?latitude=37.12345&longitude=-122.67891'
 ```
@@ -42,3 +42,4 @@ curl -v 'localhost:8080/trucks/find?latitude=37.12345&longitude=-122.67891&count
 4. Add the circleCi pipeline to run gradle build for each PR.
 5. Enable Dependabot for dependencies security updates. 
 6. Enhancing more detail description of food trucks from Web API call.
+7. Enabled the circleCi pipeline to build and publish docker image. 

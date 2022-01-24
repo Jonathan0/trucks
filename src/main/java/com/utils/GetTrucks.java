@@ -1,5 +1,6 @@
 package com.utils;
 
+import com.food.TruckNotFoundException;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -16,6 +17,10 @@ public class GetTrucks {
     private static final Logger log = LoggerFactory.getLogger(GetTrucks.class);
 
     public static JSONArray getTrucks(int dayorder) throws IOException {
+        if(dayorder < 0 || dayorder > 6) {
+            throw new TruckNotFoundException(-1L);
+        }
+
         URL url = new URL(String.format("https://data.sfgov.org/resource/jjew-r69b.json?dayorder=%d", dayorder));
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");

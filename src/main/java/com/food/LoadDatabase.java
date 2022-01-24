@@ -36,8 +36,12 @@ class LoadDatabase {
                 double longitude = Double.parseDouble(truck.get("longitude").toString());
                 String starttime = truck.get("starttime").toString();
                 String endtime = truck.get("endtime").toString();
+                String dayOfWeekStr = truck.get("dayofweekstr").toString();
                 String optionaltext = truck.get("optionaltext") == null ? "null" : truck.get("optionaltext").toString();
-                log.info("Preloading " + repository.save(new Truck(permitLocation, latitude, longitude, starttime, endtime, optionaltext)));
+                if(optionaltext.length() > 254) {
+                    optionaltext = optionaltext.substring(0,254);
+                }
+                log.info("Preloading " + repository.save(new Truck(permitLocation, latitude, longitude, starttime, endtime, dayOfWeekStr, optionaltext)));
             }
         } catch (IOException e) {
             log.error("Can not find trucks", e);
