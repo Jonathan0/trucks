@@ -41,7 +41,7 @@ class LoadDatabase {
                 if(optionaltext.length() > 254) {
                     optionaltext = optionaltext.substring(0,254);
                 }
-                log.info("Preloading " + repository.save(new Truck(permitLocation, latitude, longitude, starttime, endtime, dayOfWeekStr, optionaltext)));
+                log.info("Preloading " + repository.save(new Truck(permitLocation, latitude, longitude, starttime, endtime, dayOrder, dayOfWeekStr, optionaltext)));
             }
         } catch (IOException e) {
             log.error("Can not find trucks", e);
