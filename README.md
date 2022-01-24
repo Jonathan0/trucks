@@ -1,5 +1,6 @@
 # Trucks
-Pick your favorite food trucks around you. 
+Pick your favorite food trucks around you.
+![food truck](https://github.com/jonathan0/trucks/blob/main/foodtrucks.jpg?raw=true)
 
 ## How to
 1. pre-request: java11
