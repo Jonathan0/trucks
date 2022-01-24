@@ -30,6 +30,12 @@ jobs:
           name: 'Build Docker: truck-api-framework'
           command: |
             docker build -f dockerfile/Dockerfile -t truck-api-framework:latest .
+      - run:
+          name: 'Publish to my private docker hub'
+          command: |
+            docker login --username $DOCKER_USER --password $DOCKER_PWD
+            docker tag truck-api-framework:latest $DOCKER_USER/trucks
+            docker push $DOCKER_USER/trucks
 
 workflows:
   build-trucks-workflow:
