@@ -31,12 +31,13 @@ public class Truck {
     Truck() {
     }
 
-    public Truck(String permitLocation, double latitude, double longitude, String starttime, String endtime, String optionaltext) {
+    public Truck(String permitLocation, double latitude, double longitude, String starttime, String endtime, String dayOfWeekStr, String optionaltext) {
         this.permitLocation = permitLocation;
         this.latitude = latitude;
         this.longitude = longitude;
         this.starttime = starttime;
         this.endtime = endtime;
+        this.dayOfWeekStr = dayOfWeekStr;
         this.optionaltext = optionaltext;
     }
 

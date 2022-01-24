@@ -42,3 +42,4 @@ curl -v 'localhost:8080/trucks/find?latitude=37.12345&longitude=-122.67891&count
 4. Add the circleCi pipeline to run gradle build for each PR.
 5. Enable Dependabot for dependencies security updates. 
 6. Enhancing more detail description of food trucks from Web API call.
+7. Enabled the circleCi pipeline to build and publish docker image. 
