@@ -2,24 +2,31 @@ package com;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.food.Truck;
+import com.food.TruckController;
 import com.food.TruckRepository;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.Matchers.*;
 
-@WebMvcTest(TruckControllerTest.class)
+@RunWith(SpringRunner.class)
+@WebMvcTest(TruckController.class)
+@ContextConfiguration(classes = MockConfig.class)
 public class TruckControllerTest {
     @Autowired
     MockMvc mockMvc;
@@ -33,10 +40,9 @@ public class TruckControllerTest {
     Truck Truck_2 = new Truck("50 IVY ST", 37.75410782820197, -122.4131684456666, "2PM", "9PM", 1, "Monday", "coffee");
     Truck Truck_3 = new Truck("3055 23RD ST", 37.79284659513321, -122.40236649693905, "9AM", "12PM", 5, "Friday", "Fruit drink");
 
-    // @Test
+    @Test
     public void getAllRecords_success() throws Exception {
         List<Truck> records = new ArrayList<>(Arrays.asList(Truck_1, Truck_2, Truck_3));
-
         Mockito.when(truckRepository.findAll()).thenReturn(records);
 
         mockMvc.perform(MockMvcRequestBuilders
@@ -48,8 +54,8 @@ public class TruckControllerTest {
     }
 
     // @Test
-    public void getPatientById_success() throws Exception {
-        Mockito.when(truckRepository.findById(Truck_1.getId())).thenReturn(java.util.Optional.of(Truck_1));
+    public void getTruckById_success() throws Exception {
+        Mockito.when(truckRepository.findById(Truck_1.getId())).thenReturn(Optional.of(Truck_1));
 
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/trucks/1")
