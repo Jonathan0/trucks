@@ -69,7 +69,7 @@ public class GetTrucks {
      * @param longitude2  truck longitude
      * @return the distance to the truck
      */
-    public static double getDistance(double latitude1, double longitude1, double latitude2, double longitude2) {
+    public static double calculateDistance(double latitude1, double longitude1, double latitude2, double longitude2) {
         final int R = 6371;  // Radius of the earth
 
         double latDistance = Math.toRadians(latitude2 - latitude1);

@@ -27,6 +27,7 @@ public class Truck {
     private double latitude;
     private double longitude;
     private String location;
+    private double distance;
 
     Truck() {
     }
@@ -120,6 +121,14 @@ public class Truck {
 
     public String getEndtime() {
         return this.endtime;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
+    public double getDistance() {
+        return this.distance;
     }
 
     @Override

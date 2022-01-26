@@ -36,7 +36,7 @@ class TrucksApplicationTests {
         double latitude2 = 37.79223595577547;
         double longitude2 = -122.40037044651142;
 
-        double dis = getDistance(latitude1, longitude1, latitude2, longitude2);
+        double dis = calculateDistance(latitude1, longitude1, latitude2, longitude2);
         Assertions.assertEquals(567.7404856237969, dis);
     }
 
