@@ -1,11 +1,13 @@
 package com.food;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-import static com.utils.GetTrucks.getDistance;
+import static com.utils.GetTrucks.calculateDistance;
 
 @RestController
 public class TruckController {
@@ -73,7 +75,10 @@ public class TruckController {
         double lon = Double.parseDouble(longitude);
 
         for(Truck t : allTrucks) {
-            double dis = getDistance(lat, lon, t.getLatitude(), t.getLongtitude());
+            double dis = calculateDistance(lat, lon, t.getLatitude(), t.getLongtitude());
+            t.setDistance(dis);
+            // we can enable to update all trucks distance, but it is very expensive.
+            // repository.findById(t.getId()).map(truck -> repository.save(truck));
             truckMap.put(dis, t.getId());
         }
 
@@ -87,6 +92,8 @@ public class TruckController {
             }
         }
 
+        // so the repository has build-in Sort function, but it is much slower.
+        // return repository.findAll(Sort.by("distance").ascending());
         return repository.findAllById(topFiveIds);
     }
 
