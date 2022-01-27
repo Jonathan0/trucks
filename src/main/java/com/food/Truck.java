@@ -32,7 +32,7 @@ public class Truck {
     Truck() {
     }
 
-    public Truck(String permitLocation, double latitude, double longitude, String starttime, String endtime, int dayOrder, String dayOfWeekStr, String optionaltext) {
+    public Truck(String permitLocation, double latitude, double longitude, String starttime, String endtime, int dayOrder, String dayOfWeekStr, String optionaltext, String applicant) {
         this.permitLocation = permitLocation;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -41,6 +41,7 @@ public class Truck {
         this.dayOrder = dayOrder;
         this.dayOfWeekStr = dayOfWeekStr;
         this.optionaltext = optionaltext;
+        this.applicant = applicant;
     }
 
     public Long getId() {
@@ -129,6 +130,14 @@ public class Truck {
 
     public double getDistance() {
         return this.distance;
+    }
+
+    public void setApplicant(String applicant) {
+        this.applicant = applicant;
+    }
+
+    public String getApplicant() {
+        return this.applicant;
     }
 
     @Override
