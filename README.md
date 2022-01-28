@@ -35,6 +35,12 @@ curl -v 'localhost:8080/trucks/find?latitude=37.12345&longitude=-122.67891'
 ```
 curl -v 'localhost:8080/trucks/find?latitude=37.12345&longitude=-122.67891&count=10'
 ```
+12. To build and run the docker file locally at port 8104 (first to install docker app locally)
+```
+docker build -f dockerfile/Dockerfile -t truck-api-framework:latest .
+
+docker run -p 8104:8080 truck-api-framework:latest
+```
 
 ## Continue Improvement
 1. Loading all Trucks Data from the [sfgov](https://data.sfgov.org/resource/jjew-r69b.json) by the day of week (now default sunday)
@@ -43,4 +49,4 @@ curl -v 'localhost:8080/trucks/find?latitude=37.12345&longitude=-122.67891&count
 4. Add the circleCi pipeline to run gradle build for each PR.
 5. Enable Dependabot for dependencies security updates. 
 6. Enhancing more detail description of food trucks from Web API call.
-7. Enabled the circleCi pipeline to build and publish docker image. 
+7. Enabled the circleCi pipeline to build and publish to the private docker hub.
