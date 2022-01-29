@@ -35,7 +35,11 @@ curl -v 'localhost:8080/trucks/find?latitude=37.12345&longitude=-122.67891'
 ```
 curl -v 'localhost:8080/trucks/find?latitude=37.12345&longitude=-122.67891&count=10'
 ```
-12. To build and run the docker file locally at port 8104 (first to install docker app locally)
+12. Find your favor with parameter `favor=italian`, or with %20 as space `favor=ice%20cream`
+```
+http://localhost:8080/trucks/find?latitude=37.779707&longitude=-122.406949&count=10&favor=italian
+```
+13. To build and run the docker file locally at port 8104 (first to install docker app locally)
 ```
 docker build -f dockerfile/Dockerfile -t truck-api-framework:latest .
 

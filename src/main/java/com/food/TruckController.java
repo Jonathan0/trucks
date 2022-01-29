@@ -66,7 +66,8 @@ public class TruckController {
     public List<Truck> findTruck(
             @RequestParam(value = "latitude", defaultValue = "0.0") String latitude,
             @RequestParam(value = "longitude", defaultValue = "0.0") String longitude,
-            @RequestParam(value = "count", defaultValue = "5") int count) throws RuntimeException {
+            @RequestParam(value = "count", defaultValue = "5") int count,
+            @RequestParam(value = "favor", defaultValue = "") String favor) throws RuntimeException {
 
         List<Truck> allTrucks = repository.findAll();
         Map<Double, Long> truckMap = new TreeMap<>();
@@ -78,7 +79,9 @@ public class TruckController {
             t.setDistance(dis);
             // we can enable to update all trucks distance, but it is very expensive.
             // repository.findById(t.getId()).map(truck -> repository.save(truck));
-            truckMap.put(dis, t.getId());
+            if(favor.isEmpty() || t.hasFavor(favor)) {
+                truckMap.put(dis, t.getId());
+            }
         }
 
         List<Long> topFiveIds = new ArrayList<>();
