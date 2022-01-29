@@ -54,3 +54,4 @@ docker run -p 8104:8080 truck-api-framework:latest
 5. Enable Dependabot for dependencies security updates. 
 6. Enhancing more detail description of food trucks from Web API call.
 7. Enabled the circleCi pipeline to build and publish to the private docker hub.
+8. Enhanced the api call to search truck's favor.
