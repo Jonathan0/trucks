@@ -167,5 +167,14 @@ public class Truck {
                 ", latitude='" + this.latitude + '\'' +
                 ", longitude='" + this.longitude + '\'' + '}';
     }
+
+    /**
+     * check if the truck has the favor.
+     * @param favor     input parameter
+     * @return boolean  true/false
+     */
+    public boolean hasFavor(String favor) {
+        return this.optionaltext.toLowerCase().contains(favor.toLowerCase());
+    }
 }
 
