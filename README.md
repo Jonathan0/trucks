@@ -45,6 +45,10 @@ docker build -f dockerfile/Dockerfile -t truck-api-framework:latest .
 
 docker run -p 8104:8080 truck-api-framework:latest
 ```
+14. You can pick a day of week when running the app (for example: 1 is Monday, range \[0,6\])
+```
+docker run -e dayOrder=1 -p 8104:8080 -t truck-api-framework:latest
+```
 
 ## Continue Improvement
 1. Loading all Trucks Data from the [sfgov](https://data.sfgov.org/resource/jjew-r69b.json) by the day of week (now default sunday)
@@ -55,3 +59,4 @@ docker run -p 8104:8080 truck-api-framework:latest
 6. Enhancing more detail description of food trucks from Web API call.
 7. Enabled the circleCi pipeline to build and publish to the private docker hub.
 8. Enhanced the api call to search truck's favor.
+9. Enhanced the application to be able to read dayOrder environment variable, more user-friendly.

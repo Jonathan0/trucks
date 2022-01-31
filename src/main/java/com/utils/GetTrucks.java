@@ -23,6 +23,11 @@ public class GetTrucks {
      * @throws IOException
      */
     public static JSONArray getTrucks(int dayorder) throws IOException {
+        String inputDay = System.getenv("dayOrder");
+        if(inputDay != null && !inputDay.isBlank()) {
+            dayorder = Integer.parseInt(inputDay);
+        }
+
         if(dayorder < 0 || dayorder > 6) {
             throw new TruckNotFoundException(-1L);
         }
