@@ -24,7 +24,7 @@ public class GetTrucks {
      */
     public static JSONArray getTrucks(int dayorder) throws IOException {
         String inputDay = System.getenv("dayOrder");
-        if(inputDay != null && !inputDay.isBlank()) {
+        if(inputDay != null && !inputDay.isBlank() && inputDay.length() == 1) {
             try {
                 dayorder = Integer.parseInt(inputDay);
             } catch(NumberFormatException e) {
