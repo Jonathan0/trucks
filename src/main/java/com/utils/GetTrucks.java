@@ -20,9 +20,20 @@ public class GetTrucks {
      * Retrieving food trucks data from the sfgov cloud.
      * @param dayorder The day of the week
      * @return A list of trucks as Json Array
-     * @throws IOException
+     * @throws IOException IOException
      */
     public static JSONArray getTrucks(int dayorder) throws IOException {
+        String inputDay = System.getenv("dayOrder");
+        if(inputDay != null && !inputDay.isBlank() && inputDay.length() == 1) {
+            try {
+                dayorder = Integer.parseInt(inputDay);
+            } catch(NumberFormatException e) {
+                log.error("NumberFormatException: ", e);
+            } catch(NullPointerException e) {
+                log.error("NullPointerException: ", e);
+            }
+        }
+
         if(dayorder < 0 || dayorder > 6) {
             throw new TruckNotFoundException(-1L);
         }
