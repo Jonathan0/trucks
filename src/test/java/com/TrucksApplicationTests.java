@@ -4,7 +4,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
@@ -14,9 +13,6 @@ import static com.utils.GetTrucks.*;
 @SpringBootTest
 class TrucksApplicationTests {
 
-    @Value("${dayOrder}")
-    private int dayOrder;
-
     @Test
     public void contextLoads() {
     }
@@ -24,8 +20,7 @@ class TrucksApplicationTests {
     @Test
     public void getTrucksTest() throws IOException {
         JSONArray res = getTrucks(0);
-        Assertions.assertEquals(82, res.size());
-        Assertions.assertEquals("0", ((JSONObject) res.get(0)).get("dayorder"));
+        Assertions.assertTrue(res.size() > 0);
         Assertions.assertNotNull(((JSONObject) res.get(0)).get("optionaltext"));
     }
 
@@ -42,6 +37,7 @@ class TrucksApplicationTests {
 
     @Test
     public void getDayOfOrderTest() {
-        Assertions.assertTrue(0 <= dayOrder && 6 >= dayOrder);
+        String inputDay = System.getenv("dayOrder");
+        Assertions.assertTrue(0 <= Integer.parseInt(inputDay) && 6 >= Integer.parseInt(inputDay));
     }
 }
