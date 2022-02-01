@@ -9,7 +9,7 @@ jobs:
       - run:
           name: 'Build Truck Web API and Test'
           command: |
-            echo $(date)
+            export dayOrder=$(date +%u)
             ./gradlew clean build
       - store_test_results:
           path: ~/project/build/test-results/test/
