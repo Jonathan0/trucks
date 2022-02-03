@@ -96,7 +96,9 @@ public class TruckController {
 
         // so the repository has build-in Sort function, but it is much slower.
         // return repository.findAll(Sort.by("distance").ascending());
-        return repository.findAllById(topFiveIds);
+        List<Truck> sortedTrucks = repository.findAllById(topFiveIds);
+        Collections.sort(sortedTrucks);
+        return sortedTrucks;
     }
 
 }

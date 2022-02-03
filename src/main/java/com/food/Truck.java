@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Truck {
+public class Truck implements Comparable<Truck> {
     /**
      * DayOrder,DayOfWeekStr,starttime,endtime,permit,PermitLocation,locationdesc,optionaltext,locationid,scheduleid,start24,end24,CNN,Addr_Date_Create,Addr_Date_Modified,block,lot,ColdTruck,Applicant,X,Y,Latitude,Longitude,Location
      * 0,Sunday,12PM,6PM,21MFF-00015,3750 18TH ST,"Facility located on the north side of 18th Street, approximately 170 feet west of Dolores Street","Snow Cones, Soft Serve Ice Cream & Frozen Virgin Daiquiris",1571753,,12:00,18:00,887000,11/15/2021 01:30:17 PM,11/15/2021 01:33:58 PM,3579,006,N,The Geez Freeze,6004590.10061802,2105440.47834342,37.761398102006275,-122.427241066455551,"(37.761398102006275, -122.42724106645555)"
@@ -175,6 +175,20 @@ public class Truck {
      */
     public boolean hasFavor(String favor) {
         return this.optionaltext.toLowerCase().contains(favor.toLowerCase());
+    }
+
+    /*
+     * This method sort automatically by the distance in incremental order.
+     * It is used by Collections.sort(List<Truck>);
+     */
+    @Override
+    public int compareTo(Truck truck) {
+        if(this.distance > truck.getDistance()) {
+            return 1;
+        } else if( this.distance == truck.getDistance()) {
+            return 0;
+        }
+        return -1;
     }
 }
 
