@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TruckErrorHandlerController implements ErrorController{
 
-    @RequestMapping(path = "/error", method = {RequestMethod.GET, RequestMethod.PUT, RequestMethod.POST, RequestMethod.DELETE})
+    @RequestMapping(path = "/error", method = {RequestMethod.GET})
     @ResponseBody
     public String getErrorPath() {
         return "<center><h1>There is no Truck found !</h1></center>";
