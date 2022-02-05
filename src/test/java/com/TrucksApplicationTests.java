@@ -19,6 +19,7 @@ class TrucksApplicationTests {
 
     @Test
     public void contextLoads() {
+        Assertions.assertTrue(dayOrder >= 0);
     }
 
     @Test
