@@ -24,7 +24,7 @@ class LoadDatabase {
     private static final String [] DAY_OF_WEEK = new String[]{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
     @Bean
-    CommandLineRunner initDatabase(TruckRepository repository) {
+    CommandLineRunner initDatabase(TruckRepository repository) throws NullPointerException {
         JSONArray trucksArray = null;
 
         try {
@@ -39,6 +39,7 @@ class LoadDatabase {
                 String dayOfWeekStr = truck.get("dayofweekstr").toString();
                 String optionaltext = truck.get("optionaltext") == null ? "null" : truck.get("optionaltext").toString();
                 String applicant = truck.get("applicant").toString();
+                Long locationid = Long.valueOf(truck.get("locationid").toString());
                 if(optionaltext.length() > 254) {
                     optionaltext = optionaltext.substring(0,254);
                 }
@@ -52,7 +53,8 @@ class LoadDatabase {
                                 dayOrder,
                                 dayOfWeekStr,
                                 optionaltext,
-                                applicant)
+                                applicant,
+                                locationid)
                 ));
             }
         } catch (IOException e) {
@@ -61,6 +63,7 @@ class LoadDatabase {
 
         JSONArray finalTrucksArray = trucksArray;
         return args -> {
+            assert finalTrucksArray != null;
             log.info("Preloading " + finalTrucksArray.size() + " trucks completed!");
             log.info("Day of Week: " + DAY_OF_WEEK[dayOrder] + " !");
             // log.info("Preloading " + repository.save(new Truck("505 HOWARD ST", 37.788387888445406, -122.396123930376618)));

@@ -32,7 +32,7 @@ public class Truck implements Comparable<Truck> {
     Truck() {
     }
 
-    public Truck(String permitLocation, double latitude, double longitude, String starttime, String endtime, int dayOrder, String dayOfWeekStr, String optionaltext, String applicant) {
+    public Truck(String permitLocation, double latitude, double longitude, String starttime, String endtime, int dayOrder, String dayOfWeekStr, String optionaltext, String applicant, Long locationid) {
         this.permitLocation = permitLocation;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -42,6 +42,7 @@ public class Truck implements Comparable<Truck> {
         this.dayOfWeekStr = dayOfWeekStr;
         this.optionaltext = optionaltext;
         this.applicant = applicant;
+        this.locationid = locationid;
     }
 
     public Long getId() {
@@ -138,6 +139,14 @@ public class Truck implements Comparable<Truck> {
 
     public String getApplicant() {
         return this.applicant;
+    }
+
+    public void setLocationid(Long locationid) {
+        this.locationid = locationid;
+    }
+
+    public Long getLocationid() {
+        return this.locationid;
     }
 
     @Override
