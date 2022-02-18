@@ -39,6 +39,7 @@ class LoadDatabase {
                 String dayOfWeekStr = truck.get("dayofweekstr").toString();
                 String optionaltext = truck.get("optionaltext") == null ? "null" : truck.get("optionaltext").toString();
                 String applicant = truck.get("applicant").toString();
+                long locationid = Long.valueOf(truck.get("locationid").toString());
                 if(optionaltext.length() > 254) {
                     optionaltext = optionaltext.substring(0,254);
                 }
@@ -52,7 +53,8 @@ class LoadDatabase {
                                 dayOrder,
                                 dayOfWeekStr,
                                 optionaltext,
-                                applicant)
+                                applicant,
+                                locationid)
                 ));
             }
         } catch (IOException e) {
