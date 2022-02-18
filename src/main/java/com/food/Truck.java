@@ -141,6 +141,14 @@ public class Truck implements Comparable<Truck> {
         return this.applicant;
     }
 
+    public void setLocationid(Long locationid) {
+        this.locationid = locationid;
+    }
+
+    public Long getLocationid() {
+        return this.locationid;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)
