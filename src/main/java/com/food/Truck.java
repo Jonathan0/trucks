@@ -32,7 +32,7 @@ public class Truck implements Comparable<Truck> {
     Truck() {
     }
 
-    public Truck(String permitLocation, double latitude, double longitude, String starttime, String endtime, int dayOrder, String dayOfWeekStr, String optionaltext, String applicant, long locationid) {
+    public Truck(String permitLocation, double latitude, double longitude, String starttime, String endtime, int dayOrder, String dayOfWeekStr, String optionaltext, String applicant, Long locationid) {
         this.permitLocation = permitLocation;
         this.latitude = latitude;
         this.longitude = longitude;
