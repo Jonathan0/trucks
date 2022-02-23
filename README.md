@@ -61,3 +61,4 @@ docker run -e dayOrder=1 -p 8104:8080 -t truck-api-framework:latest
 8. Enhanced the api call to search truck's favor.
 9. Enhanced the application to be able to read dayOrder environment variable, more user-friendly.
 10. The `/truck/find` return a list of trucks which are sorted by distance. (original sort by ID)
+11. The truck object contains the locationId.
