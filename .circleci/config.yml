@@ -2,8 +2,8 @@ version: 2.1
 
 jobs:
   build-trucks:
-    machine: # executor type
-      image: ubuntu-2004:202010-01
+    machine:
+      image: ubuntu-2004:202104-01
     steps:
       - checkout
       - run:
@@ -30,8 +30,8 @@ jobs:
           command: ./gradlew clean build sonarqube
 
   build-docker:
-    machine: # executor type
-      image: ubuntu-2004:202010-01
+    machine:
+      image: ubuntu-2004:202104-01
     steps:
       - checkout
       - attach_workspace:
