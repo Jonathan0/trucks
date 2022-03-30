@@ -1,4 +1,8 @@
 # Trucks
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Jonathan0_trucks&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Jonathan0_trucks)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Jonathan0_trucks&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Jonathan0_trucks)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Jonathan0_trucks&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Jonathan0_trucks)
+
 Pick your favorite food trucks around you.
 ![food truck](https://github.com/jonathan0/trucks/blob/main/foodtrucks.jpg?raw=true)
 
