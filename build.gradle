@@ -16,7 +16,7 @@ repositories {
 dependencies {
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
     implementation 'javax.persistence:javax.persistence-api:2.2'
-    implementation 'org.springframework.boot:spring-boot-starter:2.6.5'
+    implementation 'org.springframework.boot:spring-boot-starter:2.6.6'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.5'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.6.5'
 
