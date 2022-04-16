@@ -7,7 +7,7 @@ updates:
     labels:
       - "Gradle dependencies"
   - package-ecosystem: "docker"
-    directory: "/"
+    directory: "/dockerfile"
     schedule:
       interval: "daily"
     labels:
