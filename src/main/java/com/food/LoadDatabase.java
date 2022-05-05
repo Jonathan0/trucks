@@ -18,7 +18,7 @@ class LoadDatabase {
 
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
-    @Value("${dayOrder}")  //this is default value set in appplication.properties
+    @Value("${dayOrder}")  //this is default value set in application.properties
     private int dayOrder;
 
     private static final String [] DAY_OF_WEEK = new String[]{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
@@ -66,7 +66,6 @@ class LoadDatabase {
             assert finalTrucksArray != null;
             log.info("Preloading " + finalTrucksArray.size() + " trucks completed!");
             log.info("Day of Week: " + DAY_OF_WEEK[dayOrder] + " !");
-            // log.info("Preloading " + repository.save(new Truck("505 HOWARD ST", 37.788387888445406, -122.396123930376618)));
         };
     }
 }
