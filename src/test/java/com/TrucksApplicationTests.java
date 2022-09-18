@@ -26,7 +26,7 @@ class TrucksApplicationTests {
     public void getTrucksTest() throws IOException {
         JSONArray res = getTrucks(0);
         Assertions.assertTrue(res.size() > 0);
-        Assertions.assertNotNull(((JSONObject) res.get(0)).get("optionaltext"));
+        Assertions.assertNotNull(((JSONObject) res.get(0)).get("location"));
     }
 
     @Test
