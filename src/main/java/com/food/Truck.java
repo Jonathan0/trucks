@@ -22,12 +22,9 @@ public class Truck implements Serializable, Comparable<Truck> {
     private volatile String locationdesc;
     private volatile String optionaltext;
     private volatile Long locationid;
-    private volatile String start24;
-    private volatile String end24;
     private volatile String applicant;
     private volatile double latitude;
     private volatile double longitude;
-    private volatile String location;
     private volatile double distance;
 
     Truck() {
