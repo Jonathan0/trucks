@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  semantic-release: proxyco/semantic-release@4.0.0
+
 jobs:
   build-trucks:
     machine:
@@ -36,6 +39,8 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
+      - semantic-release/release:
+          debug: false
       - run:
           name: 'Build Docker: truck-api-framework'
           command: |
