@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  semantic-release: proxyco/semantic-release@4.0.0
+  version-release: kohirens/version-release@2.3.5
 
 jobs:
   build-trucks:
@@ -39,8 +39,10 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - semantic-release/release:
-          debug: false
+      - version-release/check-last-commit-updated-changelog
+      - version-release/generate-a-workflow
+      - version-release/git-chglog-update
+      - version-release/trigger-tag-and-release
       - run:
           name: 'Build Docker: truck-api-framework'
           command: |
