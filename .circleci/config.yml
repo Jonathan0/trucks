@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   version-release: kohirens/version-release@2.3.5
+  github-cli: circleci/github-cli@2.2.0
 
 jobs:
   build-trucks:
@@ -39,8 +40,9 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - version-release/add-missing-chglog-config
+      - github-cli/setup
       - version-release/git-chglog-update
+      - version-release/add-missing-chglog-config
       - version-release/check-last-commit-updated-changelog
       - version-release/generate-a-workflow
       - version-release/trigger-tag-and-release
