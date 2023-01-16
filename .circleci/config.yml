@@ -39,9 +39,9 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
+      - version-release/git-chglog-update
       - version-release/check-last-commit-updated-changelog
       - version-release/generate-a-workflow
-      - version-release/git-chglog-update
       - version-release/trigger-tag-and-release
       - run:
           name: 'Build Docker: truck-api-framework'
