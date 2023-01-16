@@ -39,6 +39,10 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
+      - run:
+          name: 'apt install git'
+          command: |
+            apt install git -y
       - version-release/git-chglog-update
       - version-release/check-last-commit-updated-changelog
       - version-release/generate-a-workflow
