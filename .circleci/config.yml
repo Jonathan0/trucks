@@ -1,7 +1,6 @@
 version: 2.1
 
 orbs:
-  version-release: kohirens/version-release@2.3.5
   versioning: kollex/versioning@1.0.0
 
 jobs:
