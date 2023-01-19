@@ -44,6 +44,7 @@ jobs:
       - run:
           name: 'Build Docker: truck-api-framework'
           command: |
+            echo The Docker tag is $DOCKER_TAG and the Version is $VERSION
             docker build -f dockerfile/Dockerfile -t truck-api-framework:latest .
       - run:
           name: 'Publish to my private docker hub'
