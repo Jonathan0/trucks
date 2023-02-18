@@ -27,7 +27,7 @@ jobs:
       - checkout
       - run:
           name: Analyze on SonarCloud
-          command: ./gradlew clean build sonarqube
+          command: ./gradlew clean build sonar
 
   build-docker:
     machine:
