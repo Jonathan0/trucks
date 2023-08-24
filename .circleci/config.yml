@@ -52,12 +52,27 @@ jobs:
 workflows:
   build-trucks-workflow:
     jobs:
-      - build-trucks
-      - sonar-scan
+      - build-trucks:
+          filters:
+            branches:
+              only:
+                - /^feature\/.*/
+                - main
+      - sonar-scan:
+          filters:
+            branches:
+              only:
+                - /^feature\/.*/
+                - main
       - build-docker:
           requires:
             - build-trucks
             - sonar-scan
+          filters:
+            branches:
+              only:
+                - /^feature\/.*/
+                - main
 
   nightly-workflow:
     jobs:
