@@ -21,8 +21,8 @@ jobs:
             - build
 
   sonar-scan:
-    docker:
-      - image: 'cimg/openjdk:11.0'
+    machine:
+      image: ubuntu-2204:2023.02.1
     steps:
       - checkout
       - run:
